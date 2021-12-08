@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<title>Apriori algorithm</title>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+<h2>Apriori Algorithm</h2>
+
+<form class="form-inline" method="POST" action="{{ url_for('result') }}">
+  <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon">Please select the dataset input file from below dropdown :</span>
+            <select name="comp_select" class="selectpicker form-control">
+              {% for o in data %}
+              <option value="{{ o.name }}">{{ o.name }}</option>
+              {% endfor %}
+            </select>
+
+
+
+    </div>
+            <div class="control">
+            <label for="min_value" class="label">Enter minimum Support : </label>
+          <input type="text" name="min_value" class="input" required="required"/>
+        </div>
+        <div class="control">
+            <label for="min_conf" class="label">Enter minimum Confidence : </label>
+          <input type="text" name="min_conf" class="input" required="required"/>
+        </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+</form>
+</body>
+</html>
